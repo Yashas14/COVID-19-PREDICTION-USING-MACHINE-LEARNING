@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/jpg" href="favicon.webp"/>
+  <title>CovidProphesy</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+          <link rel = "icon" href = "favicon.webp" type = "image/x-icon">
+        <link rel="stylesheet" href="style1.css">
+        <!-- <link rel="stylesheet" href="common.css"> -->
+          <link rel = "icon" href = "../static/favicon.webp" type = "image/x-icon">
+           <link rel="stylesheet" href="../static/style1.css"> 
+<!--   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'> -->
+<!-- CSS only
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
+  
+  <style>
+       input:hover{ 
+      background-color: #ffffcc;
+      }   
+      input{ margin-top: 10px;
+      height: 35px;
+      }
+      body{
+      background-image: url(../static/cov.webp);
+      background-blend-mode: all;
+      background-position: left;
+      background-size: all;
+      background-attachment: fixed;
+   background-size: 100% 100%;
+  }
+      .btn btn-primary btn-block btn-large:hover{
+      background-color: #4CAF50; /* Green */
+      color: white;
+}
+      button {
+  background-color:#4CAF50;
+  color: white;
+  transition-duration: 0.4s;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}
+  
+  </style>
+</head>
+
+<body>
+	<nav class="navbar background">
+            <ul  class="nav-list">
+                <div class="logo">
+                    <img src="../static/favicon.webp">
+                </div>
+               <li ><b style="font-size: 33px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>CovidProphesy-NOVEL CORONAVIRUS PREDICTOR</a></b></li>
+        
+    
+
+               
+            <div class="rightNav">
+        
+            </div>
+        </nav> 
+ <div style="align-content: center;" class="predict">
+	<b><p style="text-align: center;color: black;">
+	NOTE: "YES" means presence,"NO" means absence of that particular diseases FOR EX: if YES for cough then your SUFFERING from cough</p></b>
+<hr style="color:#04446D;font-style: bold">
+
+    <section style="text-align: left; margin-left: 500px; color: black;font-style: bold ">
+      <form action="{{url_for('predict')}}" method="post">
+          <b style="margin-left: 35px;" >Breathing Problem : &nbsp </b>
+         <input type="radio" name="bp" value=1.0 id="ybp"/>
+         <label for="ybp">Yes</label>
+         <input type="radio" name="bp" value=0.0 id="nbp"/>
+         <label for="nbp">No</label><br/>
+
+         <b style="margin-left: 125px;">Fever  : &nbsp </b>
+         <input type="radio" name="fev" value=1.0 id="yfev"/>
+         <label for="yfev">Yes</label>
+         <input type="radio" name="fev" value=0.0 id="nfev"/>
+         <label for="nfev">No</label><br/>
+
+         <b style="margin-left: 95px;">Dry Cough : &nbsp </b>
+         <input type="radio" name="cou" value=1.0 id="ycou"/>
+         <label for="ycou">Yes</label>
+         <input type="radio" name="cou" value=0.0 id="ncou"/>
+         <label for="ncou">No</label><br/>
+         
+         <b style="margin-left: 95px;">Sore throat : &nbsp </b>
+         <input type="radio" name="st" value=1.0 id="yst"/>
+         <label for="yst">Yes</label>
+         <input type="radio" name="st" value=0.0 id="nst"/>
+         <label for="nst">No</label><br/>
+
+         <b style="margin-left: 75px;">Hyper Tension : &nbsp </b>
+         <input type="radio" name="ht" value=1.0 id="yht"/>
+         <label for="yht">Yes</label>
+         <input type="radio" name="ht" value=0.0 id="nht"/>
+         <label for="nht">No</label><br/>
+         
+         <b style="margin-left: 80px;">Abroad travel : &nbsp </b>
+         <input type="radio" name="at" value=1.0 id="yat"/>
+         <label for="yat">Yes</label>
+         <input type="radio" name="at" value=0.0 id="nat"/>
+         <label for="nat">No</label><br/>
+        
+         <b style="margin-left: -10px;">Contact with COVID Patient : &nbsp </b>
+         <input type="radio" name="con" value=1.0 id="ycon"/>
+         <label for="ycon">Yes</label>
+         <input type="radio" name="con" value=0.0 id="ncon"/>
+         <label for="ncon">No</label><br/>
+
+         <b>Attended Large Gathering : &nbsp </b>
+         <input type="radio" name="attend" value=1.0 id="yattend"/>
+         <label for="yattend">Yes</label>
+         <input type="radio" name="attend" value=0.0 id="nattend"/>
+         <label for="nattend">No</label><br/>
+         
+         <b style="margin-left: -30px;">Visited Public Exposed Places : &nbsp </b>
+         <input type="radio" name="visit" value=1.0 id="yvisit"/>
+         <label for="yvisit">Yes</label>
+         <input type="radio" name="visit" value=0.0 id="nvisit"/>
+         <label for="nvisit">No</label><br/>
+
+         <b style="margin-left: -100px;">Family working in Public Exposed Places	 : &nbsp </b>
+         <input type="radio" name="fam" value=1.0 id="yfam"/>
+         <label for="yfam">Yes</label>
+         <input type="radio" name="fam" value=0.0 id="nfam"/>
+         <label for="nfam">No</label><br/>
+&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+   
+ <button type="submit" style="width: 155px;background-color: #04446D;align-content: center;padding-left: 50px;padding-right: 50px;padding-top: 10px;padding-bottom: 15px;align-items: center;margin-left: 50px;" type="submit",value="predict" class="btn btn-primary btn-block btn-large" type="submit" class="btn btn-primary btn-block btn-large">PREDICT</button>
+</form>
+     
+
+<strong  style= "text-decoration-color:#43baa4;align-items: left;align-self: left;align-content: left; ">
+   <h2>{{ prediction_text }} </h2>
+
+</strong>
+</div>
+<section >
+<strong><h5 style="color: red;margin-right: 150px;">DISCLAIMER:</h5></strong>
+<p  style="color: black;align-content:left ;">Yeah Our model accuracy is >90% nearly but CONFIRM it once by taking any of the test nearby hospitals!!Thank You🙏 :) </p>
+<p  style="color: black;align-content:left ;" >Don't worry if you have tested positive!! TOGETHER!! WE WILL GET THROUGH THIS,<a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">Know more about covid here 👇</a></p>
+</section>
+
+
+
+</body>
+</html>
