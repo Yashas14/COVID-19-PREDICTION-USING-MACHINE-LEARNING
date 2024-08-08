@@ -64,7 +64,7 @@ COVIDProphesy represents a significant step forward in using ML to combat the CO
 - [Machine learning-based prediction of COVID-19 diagnosis based on symptoms](https://www.nature.com/articles/s41746-020-00372-6)
 - [A machine learning-based model for survival prediction in patients with severe COVID-19 infection](https://www.medrxiv.org/content/10.1101/2020.02.27.20028027v3)
 
-## 👥 Connect With us:
+## 👥 Connect With Me:
 
 **Yashas D** [Connect on LinkedIn](https://www.linkedin.com/in/yashasd2004/)
 Feel free to reach out for any questions or collaboration opportunities!
